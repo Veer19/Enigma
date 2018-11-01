@@ -1,0 +1,35 @@
+
+<div class="heading">
+  ENIGMA
+</div>
+
+<div class="loginForm">
+<!--
+<form (ngSubmit)="login(email,password)" #loginForm="ngForm">
+    <div class="input_form_cont">
+      <div class="form-group">
+        
+          <input placeholder="Email" type="text" class="form-control" id="email" name = "email" required  [(ngModel)]="email">
+        
+      </div>
+      <div class="form-group">
+        
+            <input  placeholder="Password" type="password" class="form-control" id="passoword" name = "password" required  [(ngModel)]="password">
+        
+      </div>
+      
+    </div>
+    <div class="buttonContainer">
+      <mat-spinner class = "spinner" strokeWidth="8" [diameter]="80" *ngIf = "showLoader"></mat-spinner>
+      <button mat-raised-button  type="submit"    *ngIf = "!showLoader">START</button>
+    </div>
+    
+  </form>
+  -->
+  <div class="buttonContainer">
+      <button mat-raised-button  (click)="loginWithGoogle()">LOGIN WITH GOOGLE</button>
+  </div>
+  
+  
+</div>
+<app-previous-button></app-previous-button>

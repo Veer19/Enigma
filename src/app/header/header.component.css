@@ -1,0 +1,44 @@
+.header_cont{
+    border-bottom: 5px #0078D7 solid;
+    margin: 0 50px;
+}
+.heading{
+    font-size: 50px;
+    text-align: left;
+    color: white;
+    margin: 20px 0px 20px 100px;
+}
+.profile{
+    float: right;
+    margin: 0px 100px 0px 0px;
+}
+#profileImage{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-size: cover;
+    display: inline-block;
+    overflow: hidden;
+}
+#profileImage img{
+    height: 100%;
+    width: 100%;
+}
+.name_cont{
+    
+    display: inline-block;
+    color: white;
+    padding-right: 30px;
+    position: relative;
+    top:-5px;
+
+}
+.name_cont h5{
+    color: darkgray;
+    cursor: pointer;
+    display: inline-block;
+
+}
+.name_cont h5:hover{
+    color:#0078D7;
+}

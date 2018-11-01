@@ -1,0 +1,132 @@
+<app-header></app-header>
+<app-previous-button></app-previous-button>
+<app-next-button *ngIf="unlocked"></app-next-button>
+
+<div class="phone">
+  <div class="lockscreen" *ngIf="!unlocked">
+    <div class="pattern">
+        <div class="circle" *ngFor ="let dot of dots" id="{{dot}}" (mouseenter)="select(dot)"></div>
+    </div>
+    <br>
+    <button mat-raised-button  (click)="submitPattern()">ENTER</button>
+    <button mat-raised-button  (click)="resetPattern()">RESET</button>
+    <br>
+    
+    <br>
+    <br>
+    <p class="wrongAlert animated fadeIn" >{{wrongAlert}}</p>
+    <div class="forgot_pass" (click)="givePatternHint=!givePatternHint;">
+      
+      <p>Forgot password</p>
+    </div>
+    <div class="patternHint animated slideInUp" *ngIf="givePatternHint">
+      {{patternRiddle}}
+      </div>
+  
+  </div>
+  <div class="phone_buttons_cont" *ngIf="unlocked">
+    <div class="app_cont animated slideInUp" *ngIf="openMessage">
+      <div class="appbar">
+        <h3>Messeges <mat-icon (click)="resetPhoneIcons()">close</mat-icon> </h3>
+        
+      </div>
+      <div class="message_app_main">
+        <div class="messages">
+          Good job till now {{encryptedName}} , you just need to be a little more cautious from now on as the government might have got a lead on us. 
+          Find the important documents in {{ip}}
+        </div>
+        <div class="messages">
+          Be there at <br>{{location}}
+        </div>
+        <div class="messages">
+          You'll need this file to get in.
+          <a id="file_download_button" href="../../assets/password.c" download><mat-icon>
+              cloud_download</mat-icon></a>
+        </div>
+      </div>
+    </div>
+    <div class="app_cont animated slideInUp" *ngIf="openGallery">
+      <div class="appbar">
+        <h3>Gallery <mat-icon (click)="resetPhoneIcons()">close</mat-icon> </h3>
+      </div>
+      <div class="galley_app_main">          
+        <a download href="../../assets/img/me.png"><img src="../../assets/img/me.png" class="galleryItem" /></a>
+        <a target="_blank" href="../../assets/img/Confidential.png"><img src="../../assets/img/Confidential.png" class="galleryItem" /></a>
+      </div>
+    </div>
+    <div class="app_cont animated slideInUp" *ngIf="openBrowser">
+      <div class="appbar">
+        <h3>Browser <mat-icon (click)="resetPhoneIcons()">close</mat-icon> </h3>
+      </div>
+      <div class="browser_app_main">          
+        <div *ngIf="!browserUnlocked">
+          <input placeholder="Username: 8 letters" type="text" class="form-control" required  [(ngModel)]="browserUnlockUsername">  
+          <br>
+          <input placeholder="Security Code: 7 digits" type="text" class="form-control" required  [(ngModel)]="browserUnlockCode">  
+          <br>
+          <button mat-raised-button  (click)="submitBrowserCode(browserUnlockUsername,browserUnlockCode)">ENTER</button>
+          <p>{{wrongBrowserCode}}</p>
+        </div>
+        <div *ngIf="browserUnlocked">
+          <div *ngIf="!nameVerified">
+            <h3>Verify your Identity</h3>
+            <input placeholder="Owner's Name" type="text" class="form-control" required  [(ngModel)]="verificationName">
+            <br>
+            <!--<input type="file" required [(ngModel)]="verificationImage">-->
+            <button mat-raised-button  (click)="verifyName(verificationName)">ENTER</button>
+            <p>{{wrongNameMessage}}</p>
+          </div>
+          <div *ngIf="nameVerified && !imageVerified">
+
+            <h3>Launching Camera for Facial Verification</h3>              
+            <mat-spinner class = "spinner" strokeWidth="4" [diameter]="30"></mat-spinner>
+              
+            <br>
+            <div class="file_upload_cont">
+              <input id="inputFile" type="file" required (change)="onFileChange($event)">
+              <button mat-raised-button class="uploadButton" (click)="verifyImage(verificationImage)">UPLOAD</button>
+            </div>
+              
+            <p>{{wrongImageMessage}}</p>
+          </div>
+          <div *ngIf="nameVerified && imageVerified">
+            <p>Uploading All Aadhar Data to Public Servers</p>
+            <mat-progress-bar
+              class="progress-bar"
+              [mode]="determinate"
+              [value]="loaderValue"
+            >
+            </mat-progress-bar>
+            <br>
+            <br>
+            
+            
+              <p>{{kiddingMessage}}</p>
+              <br>
+              
+              <h2>{{lastRiddle}}</h2>
+              <br>
+              <input placeholder="Cancellation Code" type="text" class="form-control" required  [(ngModel)]="finalCancellationCode">
+              <button mat-raised-button  (click)="submitCancellationCode(finalCancellationCode)">ENTER</button>
+              
+                
+              <p>{{wrongCodeMessage}}</p>
+            </div>
+            
+        </div>
+      </div>
+    </div>
+      
+    
+    <div class="icons" ></div>
+    <div class="icons" (click)="openMessage=true"></div>
+    <div class="icons" (click)="openBrowser=true"></div>
+    <a  href="https://www.google.co.in/maps" target="_blank"><div class="icons"></div></a>
+    <div class="icons" (click)="openGallery=true"></div>
+    <div class="back_button" (click)="resetPhoneIcons()"></div>
+  </div>  
+  <div class="facialVerificationWarning animated slideInLeft" *ngIf="nameVerified && !imageVerified">
+      <h3>I'll need to bypass this facial verification in some way!</h3>
+  </div>
+    
+</div>

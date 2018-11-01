@@ -1,0 +1,32 @@
+.navigate_search_cont{
+    position: fixed;
+    top:110px;
+    display: flex;
+    margin: auto;
+    
+    justify-content: center;
+    
+}
+.form-control{
+    
+    padding: 30px 50px;
+    font-size: 25px;
+    text-align: center;
+    margin: auto;
+    width: 500px;
+}
+button{
+    padding: 10px 50px;
+    font-family: text;
+    font-size: 40px;
+    background-color: #0078D7;
+    color: white;
+    
+}
+.wrongLocationMessage{
+    padding: 8px 30px;
+    font-family: text;
+    font-size: 30px;
+    background-color: #0078D7;
+    color: white;
+}

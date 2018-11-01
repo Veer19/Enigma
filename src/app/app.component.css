@@ -1,0 +1,18 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+}
+.topBar{
+    background:#004D40;
+    padding: 50px 100px;
+}
+#treasureIT{
+    font-size: 60px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
+}

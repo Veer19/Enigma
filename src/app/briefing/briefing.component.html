@@ -1,0 +1,26 @@
+<app-header></app-header>
+<mat-spinner class = "spinner" strokeWidth="8" [diameter]="80" *ngIf = "showLoader"></mat-spinner>
+<div *ngIf = "!started && !showLoader">
+    <div class="message_cont animated zoomIn">
+        <h1>Wait for the admin to start the event</h1>
+    </div>
+</div>
+<div *ngIf = "started">
+    <div class="message_cont animated zoomIn" *ngIf="progressDetected">
+        <h1>Progress Detected. What would you like to do?</h1>
+        <br>
+        <button mat-raised-button class="readButton" (click)="redirectToLevel(currentLevel)">Resume</button>
+        <button mat-raised-button class="readButton" (click)="redirectToLevel(0)">Restart</button>
+    </div>
+    <div class="message_cont animated zoomIn" *ngIf="!brief_opened && !progressDetected">
+        <h1>New Incoming Message</h1>
+        <br>
+        <button mat-raised-button class="readButton" (click)="brief_opened=true;">Read</button>
+    </div>
+    <div class="brief_cont animated bounceInLeft" *ngIf="brief_opened">
+        <div class="brief_message" *ngFor="let message of messages">
+            <p>{{message}}</p>
+        </div>
+    </div>
+    <button mat-raised-button class="start_button animated zoomIn" *ngIf="brief_opened" (click)="startMission()">ACCEPT MISSION</button>
+</div>

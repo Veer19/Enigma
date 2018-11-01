@@ -1,0 +1,8 @@
+<app-header></app-header>
+<app-story-comic [next]="isLevel2Unlocked" [previous]="true" [img]="'navigate'"></app-story-comic>
+<app-back-to-phone></app-back-to-phone>
+<div class="navigate_search_cont">
+    <input  placeholder="Enter Location Name" class="form-control" required  [(ngModel)]="navigateTo">
+    <button mat-raised-button  (click)="navigateSubmit(navigateTo)">GO</button>
+    <div class="wrongLocationMessage animated slideInLeft" *ngIf="wrongLocation">There's nothing there. Try Again!</div>
+</div>

@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div class="adminLogin" *ngIf="!adminLoggedIn">
+  <input  placeholder="Pass" class="form-control" [(ngModel)]="adminPass" required >
+  <br>
+  <button mat-raised-button  (click)="loginAsAdmin(adminPass)">LOGIN</button>
+</div>
+<div *ngIf="adminLoggedIn">
+  
+  <div class="table" >
+      <button mat-raised-button  (click)="startEvent()">Start Event</button>
+      <button mat-raised-button  (click)="haltEvent()">Halt Event</button>
+      <button mat-raised-button  (click)="stopEvent()">Stop Event</button>
+      
+    <table style="width:100%">
+      <tr>
+        <th>Name</th>
+        <th>Email</th> 
+        <th>Pattern</th>
+        <th>Location</th>
+        <th>Computer Password</th>
+        <th>Browser Username</th>
+        <th>Browser Code</th>
+        <th>Verification Name</th>
+        <th>Verification Image Size</th>
+        <th>Cancellation Code</th>
+        
+      </tr>
+      <tr *ngFor="let user of users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td> 
+        <td>{{ user.answers.pattern.ans }}</td>
+        <td>{{ user.answers.location.ans }}</td>
+        <td>{{ user.answers.computerPass.ans }}</td>
+        <td>{{ user.answers.browser.ansUsername }}</td>
+        <td>{{ user.answers.browser.ansCode }}</td>
+        <td>{{ user.answers.name.ans }}</td>
+        <td>{{ user.answers.picture.size }}</td>
+        <td>{{ user.answers.cancellationCode.ans }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

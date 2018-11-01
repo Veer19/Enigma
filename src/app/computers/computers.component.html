@@ -1,0 +1,49 @@
+<app-header></app-header>
+<app-previous-button></app-previous-button>
+<app-back-to-phone></app-back-to-phone>
+<app-next-button *ngIf="fileDownloaded"></app-next-button>
+<div class="computers_wrap" *ngIf="!computerUnlocked">
+  <div *ngIf="!computerOpened || !fakeComputerOpened">
+    <div class="search">
+      <input  placeholder="" class="form-control" required  [(ngModel)]="ipAns">
+      <button mat-raised-button  (click)="IPSubmit(ipAns)">SEARCH</button>
+    </div>
+    <div class="computer" *ngFor="let computer of computers | filter : ipAns" (click)="openComputer(computer)"></div>
+  </div>
+  <div class="computer_password_screen animated fadeIn" *ngIf="computerOpened">
+      <mat-icon class="closeIcon" (click)="computerOpened=false;">close</mat-icon>
+      <div class="computer_password_wrap">
+          <div class="computer_profile"></div>
+        <div class="search">
+            
+              <input  placeholder="" class="form-control" [(ngModel)]="computerPassAns" required >
+              <button mat-raised-button  (click)="verifyComputerPass(computerPassAns)">LOGIN</button>
+              
+              
+            
+        </div>
+        <p>{{wrongPasswordMessage}}</p>
+      </div>
+  </div>
+  <div class="computer_password_screen animated fadeIn" *ngIf="fakeComputerOpened">
+      <mat-icon class="closeIcon" (click)="fakeComputerOpened=false;">close</mat-icon>
+      <div class="computer_password_wrap">
+          <div class="computer_profile"></div>
+        <div class="search">
+            
+              <input  placeholder="Password" class="form-control" required >
+              <button mat-raised-button  (click)="wrongPasswordMessage='Wrong Password'">LOGIN</button>
+              
+              
+            
+        </div>
+        <p>{{wrongPasswordMessage}}</p>
+      </div>
+  </div>
+  
+</div>
+<div class="desktop" *ngIf="computerUnlocked">
+    <a href="../../assets/img/Confidential.zip" download (click)="fileDownloaded=true;">
+      <div class="zip_file"></div>
+    </a>
+</div>

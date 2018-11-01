@@ -1,0 +1,14 @@
+<div class="header_cont">
+  <div class="profile animated fadeIn" *ngIf="showHeader">
+    <div class="name_cont">
+        <h3>{{displayName}}</h3>
+        <h5 (click)="logout()">Logout</h5>
+    </div>
+    <div id="profileImage">
+      <img [src]="photoURL">
+    </div>
+  </div>
+  <div class="heading">
+    ENIGMA
+  </div>
+</div>

@@ -1,0 +1,12 @@
+#fullscreen_image{
+    width: 85vw;
+    height: 85vh;
+    background-size:cover;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+#fullscreen_image img{
+    
+    height: 100%;
+}

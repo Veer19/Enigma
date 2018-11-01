@@ -1,0 +1,28 @@
+.next_icon_cont{
+    
+    background:#0078D7;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    right: -50px;
+    z-index: 10000000000;
+    padding: 20px 130px 20px 80px;
+    text-align: center;
+    cursor: pointer;
+    transition: right 0.1s linear;
+}
+.next_icon_cont:hover{
+    right: 0;
+}
+
+.next_icon{
+    
+    color: white;
+    background:#0078D7;
+    font-size: 80px;
+    position: relative;
+    left: -35px;
+}
+.next_icon svg{
+    fill: white;
+}

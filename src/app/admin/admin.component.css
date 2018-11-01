@@ -1,0 +1,24 @@
+
+.form-control{
+    
+    padding: 5px 10px;
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+    width: 200px;
+}
+
+button{
+    background: #0078D7;
+    margin: 5px;
+    color: white;
+}
+.adminLogin{
+    width: 100%;
+    text-align: center;
+    padding-top: 300px;
+}
+.table{
+    color: white;
+    padding: 50px;
+}
